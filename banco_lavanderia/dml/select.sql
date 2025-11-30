@@ -1,0 +1,62 @@
+--COMANDOS SELECT ORDER BY
+SELECT * FROM clientes
+    ORDER BY nome DESC;
+SELECT * FROM clientes
+    ORDER BY nome ASC;
+
+
+
+
+--COMANDO SELECT WHERE 
+
+--COMANDO PARA SABER QUANTOS PEDIDOS FORAM CONCLUÍDOS
+SELECT * FROM pedido
+    WHERE status = 'Concluído';
+
+--COMANDO PARA SABER QUAIS SERVIÇOS FORAM REALIZADOS,SOLICITADOS,ETC EM UM PEDIDO ESPECÍFICO
+SELECT * FROM pedido    
+    WHERE DATE(data_pedido) BETWEEN '2024-01-01' AND '2024-12-31'
+    ORDER BY data_pedido ASC;
+
+--COMANDOS SELECT WHERE COMPARANDO STATUS DOS PEDIDOS
+SELECT * FROM pedido
+    WHERE status = 'Pendente';
+
+SELECT * FROM pedido
+    WHERE status = 'Em Progresso';
+    
+SELECT * FROM pedido
+    WHERE status = 'Concluído';
+
+
+
+
+
+--COMANDOS SELECT LIMIT
+
+--COMANDO PARA SABER OS 2 PRIMEIROS CLIENTES CADASTRADOS
+SELECT * FROM clientes  
+    LIMIT 2;
+
+--COMANDO PARA SABER OS 2 ULTIMOS CLIENTES CADASTRADOS
+SELECT * FROM clientes  
+    ORDER BY CPF DESC
+    LIMIT 2;
+
+
+
+
+--COMANDO JOIN
+
+--COMANDO PARA SABER QUANTO CADA CLIENTE GASTOU EM SEUS PEDIDOS
+SELECT clientes.Nome, pedido.valor_total
+    FROM clientes
+    INNER JOIN pedido ON clientes.CPF = pedido.CPF_cliente;
+
+--COMANDO PARA SABER QUAIS SERVIÇOS FORAM INCLUÍDOS EM CADA PEDIDO
+SELECT pedido.ID_pedido, servico.nome_servico FROM inclui
+    INNER JOIN pedido ON inclui.ID_pedido = pedido.ID_pedido
+    INNER JOIN servico ON inclui.ID_servico = servico.ID_servico;
+
+
+   
