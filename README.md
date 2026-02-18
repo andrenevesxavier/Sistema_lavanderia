@@ -27,7 +27,7 @@ banco_lavanderia
 Antes de começar, certifique-se de ter instalado:
 - MySQL Server
 - MySQL Workbench ou VS Code com extensão SQL
-- Git (opcional)
+- Git
 
 Agora siga o passo a passo para rodar o projeto no seu repositorio local  
 
